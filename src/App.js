@@ -20,8 +20,15 @@ import { SortableItem } from './SortableItem';
 export function App() {
 
   const [items, setItems] = useState(
-['1','2','3']
+    ['1', '2', '3', '4']
   )
+
+  const payload = [
+    { value: 'foo 0' },
+    { value: 'bar 1' },
+    { value: 'zed 2' },
+    { value: 'ded 3' }
+  ]
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -31,29 +38,29 @@ export function App() {
 
   );
 
-
   return (
     <h2>
-    <div style={{ maxWidth: '400px' }}>
-    <ul>
-    <DndContext sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
+      <div style={{ maxWidth: '400px' }}>
+        <ul >
+          <DndContext sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
 
-    >
-      <SortableContext
-        items={items}
-        strategy={verticalListSortingStrategy}
-      >
-        {items.map(id => <SortableItem key={id} id={id} value={id} />)}
+          >
+            <SortableContext
+              items={items}
+              strategy={verticalListSortingStrategy}
+            >
+              {items.map(id => <SortableItem key={id} id={id} value={payload[id - 1].value} />)}
 
-      </SortableContext>
+            </SortableContext>
 
-    </DndContext>
-    </ul>
-        </div>  
-        </h2>  
+          </DndContext>
+        </ul>
+      </div>
+    </h2>
   );
+
 
   function handleDragEnd(event) {
     console.log("drag event detected");
@@ -66,8 +73,7 @@ export function App() {
 
         return arrayMove(items, oldIndex, newIndex)
       });
-
     }
-  }
+  };
 }
 
