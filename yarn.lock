@@ -1110,9 +1110,9 @@
     "@dnd-kit/utilities" "^3.0.0"
     tslib "^2.0.0"
 
-"@dnd-kit/utilities@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@dnd-kit/utilities/-/utilities-3.0.0.tgz#43b86e9d911b625ee54786e9daae5a521949b8a6"
+"@dnd-kit/utilities@^3.0.0", "@dnd-kit/utilities@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@dnd-kit/utilities/-/utilities-3.0.1.tgz#c9a5b3e6068cd371001c451d622fc13df0ab05c9"
   dependencies:
     tslib "^2.0.0"
 
